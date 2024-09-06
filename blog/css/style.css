@@ -1,0 +1,257 @@
+:root {
+    --white : rgb(255, 255, 255); //#ffff;
+    --dark : rgb(19, 19, 19); //#131313;
+    --grey : rgba(19, 19, 19, 80%);
+    --grey-60 : rgba(19, 19, 19, 60%);
+    --grey-50 : rgba(19, 19, 19, 50%);
+    --grey-40 : rgba(19, 19, 19, 40%);
+    --grey-20 : rgba(19, 19, 19, 20%);
+    --yellow : rgb(255, 212, 0); //#ffd400
+    --red: rgb(255, 0, 50);
+    --blue:rgb(255, 0, 50);
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-display: swap;
+    src: url(../fonts/poppins_400.woff2) format('woff2');
+}
+@font-face {
+    font-family: anton;
+    font-style: normal;
+    font-display: swap;
+    src: url(../fonts/anton.woff2) format('woff2');
+}
+@font-face {
+    font-family: karma;
+    font-style: normal;
+    font-display: swap;
+    src: url(../fonts/karma-400.woff2) format('woff2');
+}
+
+@keyframes moveIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes moveOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
+/* Start Reset*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* End Reset*/
+
+/* Start Navbar*/
+body > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: var(--dark);
+}
+
+header > nav {
+    margin: 1rem 2rem 1rem 2rem;
+    display: flex;
+    color : var(--white);
+    justify-content: space-between;
+}
+header > nav svg {
+    fill: var(--white);
+}
+
+header > nav h1 {
+    color: var(--white);
+    font-family: anton, sans-serif;
+    font-size: 1.8rem;
+}
+header > nav ul li {
+    list-style: none;
+}
+
+header > nav > div {
+    display: inherit;
+    align-items: center;
+}
+
+header > nav > div:last-child > div, header > nav > div:last-child > a{
+    margin-inline-start: 1rem;
+    cursor: pointer;
+    display: inherit;
+}
+
+/* Start style search button*/
+a[aria-label="search"]
+{
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: flex-end;
+}
+a[aria-label="search"] svg {
+    align-self: center;
+}
+
+/* End style search button*/
+
+/* Start style dark mode*/
+div[aria-label="dark mode button"] {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: all 200ms ease-in;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+}
+
+
+div[aria-label="dark mode button"] .moon{
+    transform: rotate(90deg);
+    opacity: 0;
+}
+div[aria-label="dark mode button"] .moon, div[aria-label="dark mode button"] .sun {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    transition: all 350ms cubic-bezier(0.51, 0.37, 0.25, 0.87);
+    transform-origin: 50% 100%;
+    align-self: center;
+}
+
+body.dark div[aria-label="dark mode button"] .moon{
+    opacity: 1;
+    transform: rotate(0);
+}
+
+body.dark div[aria-label="dark mode button"] .sun{
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+/* End style dark mode*/
+
+/* Start toggle Side bar*/
+div[aria-label="side navigation"] {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 3;
+}
+div[aria-label="side navigation"] > div:first-child {
+    align-self: center;
+}
+div[aria-label="side navigation"] > div,
+div[aria-label="side navigation"] > div::before,
+div[aria-label="side navigation"] > div::after {
+    border-radius: 1.5rem;
+    height: 0.125em;
+    width: 1.5rem;
+    background-color: var(--white);
+    position: absolute;
+    transition: all 200ms ease-in;
+}
+div[aria-label="side navigation"] > div::before{
+    content: "";
+    bottom: 0.5rem;
+}
+
+div[aria-label="side navigation"] > div::after {
+    content: "";
+    top: 0.5rem;
+}
+
+div[aria-label="side navigation"] ~ aside{
+    background-color: var(--dark);
+    width: 16.5rem;
+    transform: translateX(100%);
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 5rem 2rem 1rem 2rem;
+    z-index: 2;
+    transition: all 300ms ease-in;
+}
+
+div[aria-label="side navigation"] ~ aside ul li {
+    font-size: 1.4rem;
+    font-family: anton, sans-serif;
+    text-transform: capitalize;
+    margin-block-end: 0.2rem;
+}
+
+body.side{
+    overflow: hidden;
+    margin-inline-end: 1rem;
+}
+
+body.side div[aria-label="side navigation"] > div{
+    background-color: transparent;
+}
+body.side div[aria-label="side navigation"] > div::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+body.side div[aria-label="side navigation"] > div::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+body.side div[aria-label="side navigation"] ~ aside {
+    transform: none;
+}
+
+body.side aside ~ span {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+body.side div[aria-label="side navigation"] ~ aside ul li {
+    opacity: 0;
+    transform: translateX(100%);
+    animation: moveIn 200ms forwards;
+
+}
+
+body.off div[aria-label="side navigation"] ~ aside ul li{
+    opacity: 1;
+    transform: translateX(0);
+    animation: moveOut 200ms forwards;
+}
+
+/* End toggle Side bar*/
+/* End Navbar*/
+
