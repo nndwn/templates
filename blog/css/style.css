@@ -56,9 +56,7 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul {
-    margin: 0;
-    padding: 0;
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre {
     font: inherit;
     vertical-align: baseline;
 }
@@ -71,40 +69,47 @@ a {
 /* End Reset*/
 
 /* Start Navbar*/
-body > header {
+body > header:first-of-type {
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
     z-index: 1;
     background-color: var(--dark);
+    transition: all 100ms linear;
 }
 
-header > nav {
+body > header:first-of-type  > nav {
     margin: 1rem 2rem 1rem 2rem;
     display: flex;
     color : var(--white);
     justify-content: space-between;
 }
-header > nav svg {
+body > header:first-of-type  > nav svg {
     fill: var(--white);
 }
 
-header > nav h1 {
+body > header:first-of-type > nav h1 {
     color: var(--white);
     font-family: anton, sans-serif;
     font-size: 1.8rem;
 }
-header > nav ul li {
+body > header:first-of-type  > nav ul ,
+body > header:first-of-type h1
+{
+    margin: 0;
+    padding: 0;
+}
+body > header:first-of-type  > nav ul li {
     list-style: none;
 }
 
-header > nav > div {
+body > header:first-of-type  > nav > div {
     display: inherit;
     align-items: center;
 }
 
-header > nav > div:last-child > div, header > nav > div:last-child > a{
+body > header:first-of-type  > nav > div:last-child > div,
+body > header:first-of-type > nav > div:last-child > a{
     margin-inline-start: 1rem;
     cursor: pointer;
     display: inherit;
@@ -139,7 +144,8 @@ div[aria-label="dark mode button"] .moon{
     transform: rotate(90deg);
     opacity: 0;
 }
-div[aria-label="dark mode button"] .moon, div[aria-label="dark mode button"] .sun {
+div[aria-label="dark mode button"] .moon,
+div[aria-label="dark mode button"] .sun {
     position: absolute;
     width: 2rem;
     height: 2rem;

@@ -1,0 +1,23 @@
+body
+{
+    background-color: var(--grey-20);
+}
+
+body > main {
+    display: flex;
+    justify-content: center;
+}
+
+main figure {
+    margin: 0;
+    padding: 0;
+}
+
+main > article {
+    display: inherit;
+    flex-direction: column;
+    align-self: center;
+    width: 45rem;
+    background-color: var(--white);
+    margin-block: 6rem;
+}

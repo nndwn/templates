@@ -46,6 +46,31 @@ const sideNav = () => {
         }
     })
 }
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const el =  document.querySelector('body > header:first-of-type ');
+    const limit = {
+        offset: -70,
+        trigger : 96
+    };
+    if (scrollPosition > limit.trigger)
+    {
+        let count = -(scrollPosition - limit.trigger);
+        console.log(count);
+        if ( count> limit.offset)
+        {
+            el.style.top = count + 'px';
+        }else
+        {
+            el.style.top = limit.offset + 'px';
+        }
+    }else
+    {
+        el.style.top = '0px';
+    }
+    console.log('scroll', scrollPosition);
+});
+
 
 buttonDarkMode();
 sideNav();
