@@ -1,11 +1,12 @@
-body
-{
+body {
     background-color: var(--grey-20);
 }
 
 body > main {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    margin-block: 6rem;
 }
 
 main figure {
@@ -13,11 +14,100 @@ main figure {
     padding: 0;
 }
 
-main > article {
+main > section {
+    background-color: var(--white);
+    border: 1px solid var(--grey-40);
+    border-radius: 0.6rem;
+    margin-inline: 0.5rem;
+}
+
+main > section:has(figure:first-of-type) {
     display: inherit;
     flex-direction: column;
     align-self: center;
     width: 45rem;
-    background-color: var(--white);
-    margin-block: 6rem;
+}
+
+main > section:has(figure:first-of-type):not(h1, h2, h3, h4, h5, h6) {
+    font-family: karma, serif;
+}
+main > section:has(figure:first-of-type) :is(h1, h2, h3, h4, h5, h6) {
+    font-family: anton, sans-serif;
+    line-height: 1.3;
+    margin: 0;
+}
+main > section:has(figure:first-of-type) a {
+    color: var(--grey-60);
+    transition: color 100ms ease-in;
+}
+main > section:has(figure:first-of-type) a:hover {
+    color: var(--dark);
+}
+
+main > section:has(figure:first-of-type) h1 {
+    font-size: 2.5rem;
+}
+main > section:has(figure:first-of-type) h2 {
+    font-size: 1.5rem;
+}
+
+main > section:has(figure:first-of-type) h3 {
+    font-size: 1.3rem;
+}
+main > section:has(figure:first-of-type) h4 {
+    font-size: 1.2rem;
+}
+main > section:has(figure:first-of-type) h5 {
+    font-size: 1.1rem;
+}
+main > section:has(figure:first-of-type) h6 {
+    font-size: 1rem;
+}
+
+main > section:has(figure:first-of-type)  figure{
+    position: relative;
+    height: 20rem;
+}
+main > section:has(figure:first-of-type) article {
+    padding: 3rem 2rem;
+}
+main > section:has(figure:first-of-type) > figure img{
+
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+}
+
+main > section:has(figure:first-of-type) article figure img {
+    border-radius: 0.3rem;
+}
+
+main > section:has(figure:first-of-type) figure img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+main > section:has(figure:first-of-type) figcaption {
+    font-size: 0.7rem;
+}
+main > section:has(figure:first-of-type) :is(time , article > div:first-of-type ) {
+    font-size: 0.8rem;
+}
+main > section:has(figure:first-of-type) article > h1 ~ div {
+    margin-block-start: 1rem;
+    margin-block-end: 3rem;
+}
+main > section:has(figure:first-of-type) figure img ~ figcaption {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    background-color: var(--grey-60);
+    padding: 0 0.75rem;
 }

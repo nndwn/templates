@@ -50,7 +50,7 @@ window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const el =  document.querySelector('body > header:first-of-type ');
     const limit = {
-        offset: -70,
+        offset: -75,
         trigger : 96
     };
     if (scrollPosition > limit.trigger)

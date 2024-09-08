@@ -54,11 +54,13 @@ html {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
     font-family: 'Poppins', sans-serif;
+    color: var(--dark);
 }
 
-body, h1, h2, h3, h4, h5, h6, p, blockquote, pre {
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, span {
     font: inherit;
     vertical-align: baseline;
+    color: inherit;
 }
 
 a {
@@ -94,8 +96,7 @@ body > header:first-of-type > nav h1 {
     font-size: 1.8rem;
 }
 body > header:first-of-type  > nav ul ,
-body > header:first-of-type h1
-{
+body > header:first-of-type h1 {
     margin: 0;
     padding: 0;
 }
