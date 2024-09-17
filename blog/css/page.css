@@ -1,20 +1,11 @@
-body {
-    background-color: var(--dark-20);
-    transition: background-color, color 100ms ease-in;
 
-}
 
-body > main {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin-block: 6rem;
-}
+
 
 main > section {
     background-color: var(--white);
     border: 1px solid var(--dark-40);
-    border-radius: 0.6rem;
+    border-radius: var(--radius);
     margin-inline: 0.5rem;
 }
 
@@ -25,14 +16,6 @@ main > section:has(figure:first-of-type) {
     width: 45rem;
 }
 
-main > section:has(figure:first-of-type):not(h1, h2, h3, h4, h5, h6) {
-    font-family: karma, serif;
-}
-main > section:has(figure:first-of-type) :is(h1, h2, h3, h4, h5, h6) {
-    font-family: anton, sans-serif;
-    line-height: 1.3;
-    margin: 0;
-}
 main > section:has(figure:first-of-type) a {
     color: var(--dark-60);
     transition: inherit;
@@ -70,29 +53,19 @@ main > section:has(figure:first-of-type) article {
 }
 main > section:has(figure:first-of-type) > figure img{
 
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
 }
 
 main > section:has(figure:first-of-type) article figure img {
-    border-radius: 0.3rem;
+    border-radius: var(--radius);
 }
 
-figure img {
-    object-fit: cover;
-    object-position: center;
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    position: absolute;
-}
+
 main > section:has(figure:first-of-type) figcaption {
     font-size: 0.7rem;
 }
-main > section:has(figure:first-of-type) :is(time , article > div:first-of-type ) {
+main > section:has(figure:first-of-type) article > div:first-of-type  {
     font-size: 0.8rem;
 }
 main > section:has(figure:first-of-type) article > h1 ~ div {
@@ -138,16 +111,14 @@ main ~ section {
     padding-block: 3rem;
     transition: inherit;
 }
-main ~ section h1 {
-    font-family: anton, sans-serif;
-}
+
 main ~ section figure {
     position: relative;
     height: 8rem;
     flex-grow: 0.7;
 }
 main ~ section figure img {
-    border-radius: 0.2rem;
+    border-radius: var(--radius);
 }
 
 main ~ section > :is(div:first-of-type, div:last-of-type) {
@@ -167,6 +138,7 @@ main ~ section > div{
 main ~ section > div > h1 {
     padding-left: 1rem;
     font-size: 2.5rem;
+    margin-block: 1rem;
 }
 main ~ section > div:not(:not(div:first-of-type, div:last-of-type)) > div {
     display: flex;
@@ -178,25 +150,21 @@ main ~ section > div > div > a {
     padding: 1rem;
     flex: 1;
 }
-main ~ section div > div > a  > div {
+main ~ section div > div > a  > article {
     flex: 1;
     margin-left: 1rem;
     align-self: baseline;
 }
-main ~ section > div > div > a > div > h1 {
+main ~ section > div > div > a > article > h1 {
     font-size: 1.3rem;
-    margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-block-end: 0.3rem;
 }
 
-main ~ section time{
-    font-family: karma, serif;
-    font-size: 1rem;
-    color: var(--dark-60);
-}
+
 main ~ section > div:not(div:first-of-type, div:last-of-type) {
     width: 100%;
     padding-inline: 1rem;
@@ -208,11 +176,6 @@ main ~ section > div:not(div:first-of-type, div:last-of-type)  > div {
     flex-direction: row;
 }
 
-
-body.dark {
-    background-color: var(--dark-90);
-    color: var(--grey-211);
-}
 body.dark main > section {
     background-color: var(--grey-54);
 }

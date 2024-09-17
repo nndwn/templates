@@ -1,0 +1,39 @@
+
+main > section:has(a:first-of-type) {
+    width: 45rem;
+}
+main > section:has(a:first-of-type) > a {
+    display: flex;
+    flex-direction: row;
+    margin-block-end: 1rem;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, .09);
+    background-color: var(--white);
+    border: 1px solid var(--dark-40);
+    border-radius: var(--radius);
+    margin-inline: 0.5rem;
+}
+
+main > section:has(a:first-of-type) figure {
+    position: relative;
+    height: 15rem;
+    flex-grow: 0.6;
+}
+
+main > section:has(a:first-of-type) > a > figure img {
+    border-bottom-left-radius: 0.6rem;
+    border-top-left-radius: 0.6rem;
+}
+main > section:has(a:first-of-type) > a > article {
+    flex: 1;
+    align-self: center;
+    margin-inline: 1rem;
+}
+
+main > section:has(a:first-of-type) > a > article > h1 {
+    font-size: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-block: 0.3rem;
+}
