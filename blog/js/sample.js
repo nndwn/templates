@@ -57,11 +57,9 @@ window.addEventListener('scroll', function() {
     {
         let count = -(scrollPosition - limit.trigger);
         console.log(count);
-        if ( count> limit.offset)
-        {
+        if ( count> limit.offset) {
             el.style.top = count + 'px';
-        }else
-        {
+        }else {
             el.style.top = limit.offset + 'px';
         }
     }else

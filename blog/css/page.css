@@ -8,12 +8,6 @@ body > main {
     flex-direction: row;
     margin-block: 6rem;
 }
-
-main figure {
-    margin: 0;
-    padding: 0;
-}
-
 main > section {
     background-color: var(--white);
     border: 1px solid var(--grey-40);
@@ -81,7 +75,7 @@ main > section:has(figure:first-of-type) article figure img {
     border-radius: 0.3rem;
 }
 
-main > section:has(figure:first-of-type) figure img {
+figure img {
     object-fit: cover;
     object-position: center;
     height: 100%;
@@ -102,6 +96,24 @@ main > section:has(figure:first-of-type) article > h1 ~ div {
     margin-block-start: 1rem;
     margin-block-end: 3rem;
 }
+main > section:has(figure:first-of-type) article ul {
+    list-style-type: none;
+    padding-inline-start: 1rem;
+}
+main > section:has(figure:first-of-type) article ul li {
+    position: relative;
+    padding-left: 1rem;
+}
+main > section:has(figure:first-of-type) article ul li:before{
+    content: '-';
+    position: absolute;
+    left: 0;
+}
+
+main > section:has(figure:first-of-type) article blockquote{
+    font-style: italic;
+    font-size: 1.1rem;
+}
 main > section:has(figure:first-of-type) figure img ~ figcaption {
     z-index: 1;
     position: absolute;
@@ -111,3 +123,75 @@ main > section:has(figure:first-of-type) figure img ~ figcaption {
     background-color: var(--grey-60);
     padding: 0 0.75rem;
 }
+
+main ~ section {
+    background-color: var(--white);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow:  2px 0 4px 1px rgba(0, 0, 0, .09);
+    flex-wrap: wrap;
+    padding-inline: 4rem;
+    padding-block: 3rem;
+}
+main ~ section h1 {
+    font-family: anton, sans-serif;
+}
+main ~ section figure {
+    position: relative;
+    height: 8rem;
+    flex-grow: 0.7;
+}
+main ~ section figure img {
+    border-radius: 0.2rem;
+}
+
+
+main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) {
+    width: calc(100%/2);
+    padding-inline: 1rem;
+}
+main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)){
+    order: 1;
+    display: flex;
+    flex-direction: column;
+}
+main ~ section > div > h1 {
+    padding-left: 1rem;
+    font-size: 2.5rem;
+}
+main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) > div {
+    display: inherit;
+    flex-direction: row;
+    padding: 1rem;
+}
+main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) > div > div {
+    flex: 1;
+    margin-left: 1rem;
+    align-self: baseline;
+}
+main ~ section > div > div  > div > h1 {
+    font-size: 1.3rem;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+main ~ section  time{
+    font-family: karma, serif;
+    font-size: 1rem;
+    color: var(--grey-60);
+}
+main ~ section > div:not(div:first-of-type, div:last-of-type) {
+    width: 100%;
+    background-color: blue;
+    order: 3;
+}
+
+main ~ section > div:last-of-type {
+    order: 2;
+
+}
+
+
