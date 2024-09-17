@@ -1,14 +1,12 @@
 :root {
     --white : rgb(255, 255, 255); //#ffff;
+    --grey-211 : rgb(211, 211, 211);
+    --grey-54 : rgb(54, 54, 54);
     --dark : rgb(19, 19, 19); //#131313;
-    --grey : rgba(19, 19, 19, 80%);
-    --grey-60 : rgba(19, 19, 19, 60%);
-    --grey-50 : rgba(19, 19, 19, 50%);
-    --grey-40 : rgba(19, 19, 19, 40%);
-    --grey-20 : rgba(19, 19, 19, 20%);
-    --yellow : rgb(255, 212, 0); //#ffd400
-    --red: rgb(255, 0, 50);
-    --blue:rgb(255, 0, 50);
+    --dark-60 : rgba(19, 19, 19, 60%);
+    --dark-40 : rgba(19, 19, 19, 40%);
+    --dark-20 : rgba(19, 19, 19, 20%);
+    --dark-90 : rgba(19, 19, 19, 90%);
 }
 
 @font-face {
@@ -93,14 +91,13 @@ body > header:first-of-type  > nav {
     display: flex;
     color : var(--white);
     justify-content: space-between;
+    font-family: anton, sans-serif;
 }
 body > header:first-of-type  > nav svg {
     fill: var(--white);
 }
 
 body > header:first-of-type > nav h1 {
-    color: var(--white);
-    font-family: anton, sans-serif;
     font-size: 1.8rem;
 }
 body > header:first-of-type  > nav ul ,
@@ -188,7 +185,7 @@ div[aria-label="side navigation"] > div,
 div[aria-label="side navigation"] > div::before,
 div[aria-label="side navigation"] > div::after {
     border-radius: 1.5rem;
-    height: 0.125em;
+    height: 0.125rem;
     width: 1.5rem;
     background-color: var(--white);
     position: absolute;
@@ -219,7 +216,6 @@ div[aria-label="side navigation"] ~ aside{
 
 div[aria-label="side navigation"] ~ aside ul li {
     font-size: 1.4rem;
-    font-family: anton, sans-serif;
     text-transform: capitalize;
     margin-block-end: 0.2rem;
 }
@@ -270,3 +266,35 @@ body.off div[aria-label="side navigation"] ~ aside ul li{
 /* End toggle Side bar*/
 /* End Navbar*/
 
+footer {
+    background-color: var(--dark);
+    color: var(--grey-211);
+    font-family: 'karma', serif;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+}
+footer > div {
+    display: flex;
+    flex-direction: row;
+}
+footer :is(ul, p) {
+    margin: 0;
+}
+footer > div > p:first-child {
+    padding-inline-end: 2rem;
+}
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    display: inherit;
+}
+
+footer ul li {
+    padding-inline: 0.5rem;
+    text-transform: capitalize;
+}
+
+@media (max-width: 767px) {
+
+
+}

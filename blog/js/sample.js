@@ -69,6 +69,15 @@ window.addEventListener('scroll', function() {
     console.log('scroll', scrollPosition);
 });
 
+const  footer = () => {
+    const date = new Date();
+
+    const el = document.querySelector('footer p span');
+    if(el) el.innerText = date.getFullYear();
+}
+
+
 
 buttonDarkMode();
 sideNav();
+footer();``

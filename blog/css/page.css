@@ -1,5 +1,7 @@
 body {
-    background-color: var(--grey-20);
+    background-color: var(--dark-20);
+    transition: background-color, color 100ms ease-in;
+
 }
 
 body > main {
@@ -8,9 +10,10 @@ body > main {
     flex-direction: row;
     margin-block: 6rem;
 }
+
 main > section {
     background-color: var(--white);
-    border: 1px solid var(--grey-40);
+    border: 1px solid var(--dark-40);
     border-radius: 0.6rem;
     margin-inline: 0.5rem;
 }
@@ -31,8 +34,8 @@ main > section:has(figure:first-of-type) :is(h1, h2, h3, h4, h5, h6) {
     margin: 0;
 }
 main > section:has(figure:first-of-type) a {
-    color: var(--grey-60);
-    transition: color 100ms ease-in;
+    color: var(--dark-60);
+    transition: inherit;
 }
 main > section:has(figure:first-of-type) a:hover {
     color: var(--dark);
@@ -119,8 +122,8 @@ main > section:has(figure:first-of-type) figure img ~ figcaption {
     position: absolute;
     bottom: 0;
     right: 0;
-    color: white;
-    background-color: var(--grey-60);
+    color: var(--grey-211);
+    background-color: var(--dark-60);
     padding: 0 0.75rem;
 }
 
@@ -133,6 +136,7 @@ main ~ section {
     flex-wrap: wrap;
     padding-inline: 4rem;
     padding-block: 3rem;
+    transition: inherit;
 }
 main ~ section h1 {
     font-family: anton, sans-serif;
@@ -146,13 +150,17 @@ main ~ section figure img {
     border-radius: 0.2rem;
 }
 
-
-main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) {
+main ~ section > :is(div:first-of-type, div:last-of-type) {
     width: calc(100%/2);
-    padding-inline: 1rem;
-}
-main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)){
     order: 1;
+}
+main ~ section > div:first-of-type {
+    padding-inline-start: 1rem;
+}
+main ~ section > div:last-of-type {
+    padding-block-end: 1rem;
+}
+main ~ section > div{
     display: flex;
     flex-direction: column;
 }
@@ -160,17 +168,22 @@ main ~ section > div > h1 {
     padding-left: 1rem;
     font-size: 2.5rem;
 }
-main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) > div {
+main ~ section > div:not(:not(div:first-of-type, div:last-of-type)) > div {
+    display: flex;
+    flex-direction: column;
+}
+main ~ section > div > div > a {
     display: inherit;
     flex-direction: row;
     padding: 1rem;
+    flex: 1;
 }
-main ~ section > div:not(div:not(div:first-of-type, div:last-of-type)) > div > div {
+main ~ section div > div > a  > div {
     flex: 1;
     margin-left: 1rem;
     align-self: baseline;
 }
-main ~ section > div > div  > div > h1 {
+main ~ section > div > div > a > div > h1 {
     font-size: 1.3rem;
     margin: 0;
     display: -webkit-box;
@@ -178,20 +191,58 @@ main ~ section > div > div  > div > h1 {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-main ~ section  time{
+
+main ~ section time{
     font-family: karma, serif;
     font-size: 1rem;
-    color: var(--grey-60);
+    color: var(--dark-60);
 }
 main ~ section > div:not(div:first-of-type, div:last-of-type) {
     width: 100%;
-    background-color: blue;
+    padding-inline: 1rem;
     order: 3;
 }
 
-main ~ section > div:last-of-type {
-    order: 2;
-
+main ~ section > div:not(div:first-of-type, div:last-of-type)  > div {
+    display: flex;
+    flex-direction: row;
 }
 
+
+body.dark {
+    background-color: var(--dark-90);
+    color: var(--grey-211);
+}
+body.dark main > section {
+    background-color: var(--grey-54);
+}
+
+body.dark main ~ section {
+    background-color: var(--grey-54);
+}
+body.dark main ~ section time {
+    color: inherit;
+}
+body.dark main > section:has(figure:first-of-type) a {
+    color: inherit;
+}
+
+
+@media (max-width: 1024px) {
+    main ~ section {
+        padding-inline: 1rem;
+    }
+
+    main ~ section > div:first-of-type,
+    main ~ section > div:last-of-type,
+    main ~ section > div:not(div:first-of-type, div:last-of-type) {
+        padding: 0;
+    }
+    main ~ section > :is(div:first-of-type, div:last-of-type) {
+        width: 100%;
+    }
+    main ~ section > div:not(div:first-of-type, div:last-of-type) > div {
+        flex-direction: column;
+    }
+}
 
