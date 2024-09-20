@@ -37,3 +37,7 @@ main > section:has(a:first-of-type) > a > article > h1 {
     overflow: hidden;
     margin-block: 0.3rem;
 }
+
+body.dark main > section:has(a:first-of-type) > a {
+    background-color: var(--grey-54);
+}

@@ -9,6 +9,7 @@
     --dark-90 : rgba(19, 19, 19, 90%);
     --radius : 0.6rem;
 }
+
 @font-face {
     font-family: anton;
     font-style: normal;
@@ -295,10 +296,16 @@ figure img {
     top: 0;
     position: absolute;
 }
+
 article time{
     font-size: 0.8rem;
     color: var(--dark-60);
 }
+
+body.dark article time {
+    color: var(--grey-211);
+}
+
 footer {
     background-color: var(--dark);
     color: var(--grey-211);
