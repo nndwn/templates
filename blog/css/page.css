@@ -82,7 +82,7 @@ main > section:has(figure:first-of-type) article ul li:before{
     left: 0;
 }
 
-main > section:has(figure:first-of-type) article blockquote{
+main > section:has(figure:first-of-type) article q{
     font-style: italic;
     font-size: 1.1rem;
 }
@@ -135,6 +135,7 @@ main ~ section > div > h1 {
     padding-left: 1rem;
     font-size: 2.5rem;
     margin-block: 1rem;
+    text-transform: capitalize;
 }
 main ~ section > div:not(:not(div:first-of-type, div:last-of-type)) > div {
     display: flex;
@@ -154,6 +155,7 @@ main ~ section div > div > a  > article {
 main ~ section > div > div > a > article > h1 {
     font-size: 1.3rem;
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -171,6 +173,89 @@ main ~ section > div:not(div:first-of-type, div:last-of-type)  > div {
     display: flex;
     flex-direction: row;
 }
+
+main > section:has(figure:first-of-type) > div {
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+main > section:has(figure:first-of-type) > div p {
+    margin: 0;
+}
+
+article ~ div > div  {
+    display: inherit;
+}
+
+article ~ div > div :is(a , button) {
+    background: var(--dark);
+}
+
+article ~ div > div :is(a , button) {
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    margin-inline-end: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+
+article ~ div > div :is(button svg, a svg) {
+    fill: var(--white);
+}
+article ~ div > div :is(button svg , a svg){
+    width: 17px;
+    height: 17px;
+    position: absolute;
+}
+
+article ~ div > div button::before {
+    transform: translateX(50%);
+    content: attr(aria-label);
+    visibility: hidden;
+    background-color: var(--grey-54);
+    color: var(--white);
+    text-align: center;
+    border-radius: 0.2rem;
+    padding-block: 0.4rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    right: 60%;
+    margin-left: -2rem;
+    padding-inline: 6px;
+    white-space: pre;
+    pointer-events: none;
+}
+
+article ~ div > div button:hover::before{
+    visibility: visible;
+}
+
+body.dark article ~ div > div button::before 
+ {
+    background-color: var(--white);
+    color: var(--grey-54);
+}
+
+body.dark article ~ div > div :is(button svg , a svg) {
+    fill:  var(--grey-54);
+}
+
+body.dark article ~ div > div :is(a , button){
+    background: var(--white);
+}
+
 
 body.dark main > section {
     background-color: var(--grey-54);

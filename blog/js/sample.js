@@ -8,7 +8,7 @@ const buttonDarkMode = () => {
 const sideNav = () => {
     const button = document.querySelector('div[aria-label="side navigation"]');
     button.addEventListener('click', (e) => {
-        const element = document.querySelector('body > header');
+        const element = document.querySelector('body > div > header');
         const buttonMask = element.querySelector('nav > div:last-child > span');
         const toggle = document.body.classList.toggle('side');
         const mask = element.querySelector('nav > div:last-child');
@@ -48,7 +48,7 @@ const sideNav = () => {
 }
 window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
-    const el =  document.querySelector('body > header:first-of-type ');
+    const el =  document.querySelector('body> div > header:first-of-type ');
     const limit = {
         offset: -75,
         trigger : 96
@@ -76,8 +76,22 @@ const  footer = () => {
     if(el) el.innerText = date.getFullYear();
 }
 
+const buttonShare = () => {
+
+    const element = document.querySelector(`article ~ div > div button`);
+
+    element.addEventListener("click", (e) => {
+        navigator.clipboard.writeText(location.href);
+        element.ariaLabel = 'copied';
+        setTimeout(() => {
+            element.ariaLabel = "copy link";
+        }, 2000);
+    
+    })
+}
 
 
+buttonShare();
 buttonDarkMode();
 sideNav();
 footer();``

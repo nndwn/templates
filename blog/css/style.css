@@ -1,8 +1,8 @@
 :root {
-    --white : rgb(255, 255, 255); //#ffff;
+    --white : rgb(255, 255, 255); 
     --grey-211 : rgb(211, 211, 211);
     --grey-54 : rgb(54, 54, 54);
-    --dark : rgb(19, 19, 19); //#131313;
+    --dark : rgb(19, 19, 19); 
     --dark-60 : rgba(19, 19, 19, 60%);
     --dark-40 : rgba(19, 19, 19, 40%);
     --dark-20 : rgba(19, 19, 19, 20%);
@@ -72,61 +72,62 @@ body, figure {
 
 
 /* Start Navbar*/
-body > header:first-of-type {
+body > div > header:first-of-type {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 10;
     background-color: var(--dark);
     transition: all 100ms linear;
 }
 
 
-body > header:first-of-type  > nav {
+body > div > header:first-of-type  > nav {
     margin: 1rem 2rem 1rem 2rem;
     display: flex;
     color : var(--white);
     justify-content: space-between;
     font-family: anton, sans-serif;
 }
-body > header:first-of-type  > nav svg {
+body > div > header:first-of-type  > nav svg {
     fill: var(--white);
 }
 
-body > header:first-of-type > nav h1 {
+body > div > header:first-of-type > nav h1 {
     font-size: 1.8rem;
 }
-body > header:first-of-type  > nav ul ,
-body > header:first-of-type h1 {
+body > div > header:first-of-type  > nav ul ,
+body > div > header:first-of-type h1 {
     margin: 0;
     padding: 0;
 }
-body > header:first-of-type  > nav ul li {
+body > div > header:first-of-type  > nav ul li {
     list-style: none;
 }
 
-body > header:first-of-type  > nav > div {
+body > div > header:first-of-type  > nav > div {
     display: inherit;
     align-items: center;
 }
 
-body > header:first-of-type  > nav > div:last-child > div,
-body > header:first-of-type > nav > div:last-child > a{
+body > div > header:first-of-type  > nav > div:last-child > div,
+body > div > header:first-of-type > nav > div:last-child > a{
     margin-inline-start: 1rem;
     cursor: pointer;
     display: inherit;
 }
 
 /* Start style search button*/
-a[aria-label="search"]
-{
-    width: 2.5rem;
-    height: 2.5rem;
-    justify-content: flex-end;
-}
-a[aria-label="search"] svg {
-    align-self: center;
-}
+/*a[aria-label="search"]*/
+/*{*/
+/*    width: 2.5rem;*/
+/*    height: 2.5rem;*/
+/*    justify-content: flex-end;*/
+/*}*/
+/*a[aria-label="search"] svg {*/
+/*    align-self: center;*/
+/*}*/
 
 /* End style search button*/
 
@@ -273,7 +274,7 @@ body {
      margin: 0;
  }
 
-body > main {
+body > div main {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -297,6 +298,9 @@ figure img {
     position: absolute;
 }
 
+article p {
+    font-size: 1.125rem;
+}
 article time{
     font-size: 0.8rem;
     color: var(--dark-60);
