@@ -2,6 +2,7 @@ const buttonDarkMode = () => {
     const button = document.querySelector('div[aria-label="dark mode button"]');
     button.addEventListener('click', (e) => {
         document.body.classList.toggle('dark');
+        document.body.style
     })
 }
 
@@ -79,7 +80,7 @@ const  footer = () => {
 const buttonShare = () => {
 
     const element = document.querySelector(`article ~ div > div button`);
-
+    if  (!element) return
     element.addEventListener("click", (e) => {
         navigator.clipboard.writeText(location.href);
         element.ariaLabel = 'copied';
@@ -88,6 +89,7 @@ const buttonShare = () => {
         }, 2000);
     
     })
+    
 }
 
 

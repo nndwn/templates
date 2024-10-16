@@ -214,8 +214,8 @@ article ~ div > div :is(button svg, a svg) {
     fill: var(--white);
 }
 article ~ div > div :is(button svg , a svg){
-    width: 17px;
-    height: 17px;
+    width: 14px;
+    height: 14px;
     position: absolute;
 }
 

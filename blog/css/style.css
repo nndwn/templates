@@ -336,6 +336,12 @@ footer ul li {
     padding-inline: 0.5rem;
     text-transform: capitalize;
 }
+
+::selection {
+    background-color: var(--grey-54);
+    color: var(--white);
+}
+
 @media (max-width: 1024px) {
     footer > div {
         flex-direction: column;
@@ -352,8 +358,20 @@ footer ul li {
     }
 }
 
+@media (max-width: 768px) {
+    footer ul {
+        display: none;
+    }
+    body > div > header:first-of-type > nav {
+        margin-inline: 0.5rem;
+    }
+}
 
-@media (max-width: 767px) {
 
-
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background-color: var(--white);
+        color: var(--grey-54);
+    }
+    
 }

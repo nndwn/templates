@@ -1,4 +1,8 @@
 
+article p {
+    margin: 0;
+    font-size: 0.9rem !important;
+}
 main > section:has(a:first-of-type) {
     width: 45rem;
 }
@@ -30,12 +34,23 @@ main > section:has(a:first-of-type) > a > article {
 }
 
 main > section:has(a:first-of-type) > a > article > h1 {
-    font-size: 2rem;
-    display: -webkit-box;
+    font-size: 1.7rem;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin-block: 0.3rem;
+}
+
+main > section:has(a:first-of-type) > a > article h1,
+main > section:has(a:first-of-type) > a > article p {
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-block: 0.3rem;
+}
+main > section:has(a:first-of-type) > a > article p {
+
+    line-clamp: 3; 
+    -webkit-line-clamp: 3;
+   
 }
 
 body.dark main > section:has(a:first-of-type) > a {
