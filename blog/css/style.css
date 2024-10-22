@@ -48,6 +48,8 @@ html {
     text-rendering: optimizelegibility;
     font-family: karma, serif;
     color: var(--dark);
+    font-size: 1.125rem;
+    scroll-behavior: smooth;
 }
 
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, span {
@@ -219,7 +221,6 @@ div[aria-label="side navigation"] ~ aside ul li {
 
 body.side{
     overflow: hidden;
-    margin-inline-end: 1rem;
 }
 
 body.side div[aria-label="side navigation"] > div{
@@ -289,6 +290,7 @@ body.dark {
 figure img {
     object-fit: cover;
     object-position: center;
+    background-color: var(--dark);
     height: 100%;
     width: 100%;
     bottom: 0;
@@ -298,9 +300,6 @@ figure img {
     position: absolute;
 }
 
-article p {
-    font-size: 1.125rem;
-}
 article time{
     font-size: 0.8rem;
     color: var(--dark-60);
@@ -337,11 +336,6 @@ footer ul li {
     text-transform: capitalize;
 }
 
-::selection {
-    background-color: var(--grey-54);
-    color: var(--white);
-}
-
 @media (max-width: 1024px) {
     footer > div {
         flex-direction: column;
@@ -365,13 +359,4 @@ footer ul li {
     body > div > header:first-of-type > nav {
         margin-inline: 0.5rem;
     }
-}
-
-
-@media (prefers-color-scheme: dark) {
-    ::selection {
-        background-color: var(--white);
-        color: var(--grey-54);
-    }
-    
 }

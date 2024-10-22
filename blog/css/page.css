@@ -5,88 +5,133 @@ main > section {
     margin-inline: 0.5rem;
 }
 
-main > section:has(figure:first-of-type) {
+main > section:has(article) {
     display: inherit;
     flex-direction: column;
     align-self: center;
     width: 45rem;
 }
 
-main > section:has(figure:first-of-type) a {
+main > section:has(article) a {
     color: var(--dark-60);
     transition: inherit;
 }
-main > section:has(figure:first-of-type) a:hover {
+main > section:has(article) a:hover {
     color: var(--dark);
 }
 
-main > section:has(figure:first-of-type) h1 {
+main > section:has(article) :is(h1, h2, h3, h4, h5, h6) {
+    margin-block-end: 1rem;
+}
+main > section:has(article) h1 {
     font-size: 2.5rem;
 }
-main > section:has(figure:first-of-type) h2 {
+main > section:has(article) h2 {
     font-size: 1.5rem;
 }
 
-main > section:has(figure:first-of-type) h3 {
+main > section:has(article) h3 {
     font-size: 1.3rem;
 }
-main > section:has(figure:first-of-type) h4 {
+main > section:has(article) h4 {
     font-size: 1.2rem;
 }
-main > section:has(figure:first-of-type) h5 {
+main > section:has(article) h5 {
     font-size: 1.1rem;
 }
-main > section:has(figure:first-of-type) h6 {
+main > section:has(article) h6 {
     font-size: 1rem;
 }
 
-main > section:has(figure:first-of-type)  figure{
+main > section:has(article)  figure{
     position: relative;
     height: 20rem;
 }
-main > section:has(figure:first-of-type) article {
+main > section:has(article) article {
     padding: 3rem 2rem;
 }
-main > section:has(figure:first-of-type) > figure img{
-
+main > section:has(article) > figure img{
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
 }
 
-main > section:has(figure:first-of-type) article figure img {
+main > section:has(article) article figure img {
     border-radius: var(--radius);
 }
 
-
-main > section:has(figure:first-of-type) figcaption {
+main > section:has(article) figcaption {
     font-size: 0.7rem;
 }
-main > section:has(figure:first-of-type) article > div:first-of-type  {
+main > section:has(article) article > div:first-of-type  {
     font-size: 0.8rem;
 }
-main > section:has(figure:first-of-type) article > h1 ~ div {
+main > section:has(article) article > h1 ~ div {
     margin-block-start: 1rem;
     margin-block-end: 3rem;
 }
-main > section:has(figure:first-of-type) article ul {
+main > section:has(article) article ul {
     list-style-type: none;
     padding-inline-start: 1rem;
 }
-main > section:has(figure:first-of-type) article ul li {
+main > section:has(article) article ul li {
     position: relative;
     padding-left: 1rem;
+    margin-inline: 0.4rem;
+    margin-block-end: 0.4rem;
 }
-main > section:has(figure:first-of-type) article ul li:before{
+
+main > section:has(article) article ul li ul {
+    margin-block: 1rem;
+}
+main > section:has(article) article ol {
+    counter-reset: li-counter;
+    list-style: none;
+}
+main > section:has(article) article ol li::before {
+    content:  counter(li-counter, decimal-leading-zero) ".";
+    counter-increment: li-counter;
+    padding-inline-end: 1rem;
+}
+
+main > section:has(article) article ul li:before{
     content: '-';
     position: absolute;
     left: 0;
 }
 
-main > section:has(figure:first-of-type) article q{
+main > section:has(article) article q{
     font-style: italic;
     font-size: 1.1rem;
 }
-main > section:has(figure:first-of-type) figure img ~ figcaption {
+main > section:has(article) article table {
+    border-collapse: collapse;
+    caption-side: bottom;
+    width: 100%;
+    vertical-align: top;
+    border-color: var(--dark-20);
+}
+
+main > section:has(article) article :is(tbody, td, th, thead, tr) {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+main > section:has(article) article th {
+    text-align: inherit;
+}
+main > section:has(article) article table > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--grey-211);
+}
+
+body.dark section:has(article) article table > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--dark-20);
+}
+
+main > section:has(article) article table > * > * > * {
+    padding: .5rem .5rem;
+    border-bottom-width: 1px;
+}
+main > section:has(article) figure img ~ figcaption {
     z-index: 1;
     position: absolute;
     bottom: 0;
@@ -174,7 +219,7 @@ main ~ section > div:not(div:first-of-type, div:last-of-type)  > div {
     flex-direction: row;
 }
 
-main > section:has(figure:first-of-type) > div {
+main > section:has(article) > div {
     padding-inline: 2rem;
     padding-block: 1rem;
     display: flex;
@@ -183,7 +228,7 @@ main > section:has(figure:first-of-type) > div {
 
 }
 
-main > section:has(figure:first-of-type) > div p {
+main > section:has(article) > div p {
     margin: 0;
 }
 
@@ -265,8 +310,8 @@ body.dark main ~ section {
     background-color: var(--grey-54);
 }
 
-body.dark main > section:has(figure:first-of-type) a {
-    color: inherit;
+body.dark main > section:has(article) a {
+    color: var(--white);
 }
 
 @media (max-width: 1024px) {

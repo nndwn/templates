@@ -1,4 +1,10 @@
 
+@keyframes fadeOut {
+    to {
+        opacity: 1;
+    }
+}
+
 article p {
     margin: 0;
     font-size: 0.9rem !important;
@@ -15,6 +21,8 @@ main > section:has(a:first-of-type) > a {
     border: 1px solid var(--dark-40);
     border-radius: var(--radius);
     margin-inline: 0.5rem;
+    animation: fadeOut 200ms forwards;
+    opacity: 0;
 }
 
 main > section:has(a:first-of-type) figure {
@@ -47,10 +55,8 @@ main > section:has(a:first-of-type) > a > article p {
     overflow: hidden;
 }
 main > section:has(a:first-of-type) > a > article p {
-
     line-clamp: 3; 
     -webkit-line-clamp: 3;
-   
 }
 
 body.dark main > section:has(a:first-of-type) > a {
